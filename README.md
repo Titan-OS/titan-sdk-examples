@@ -7,7 +7,7 @@ This repository contains simple and practical examples demonstrating how to inte
 Each folder represents a separate and standalone example.
 
 - `example-hello-titan`: Basic example displaying SDK data.
-- `example-custom-data`: (coming soon) Sending custom data to the SDK.
+- `example-1`: [to be added].
 
 ## Requirements
 
