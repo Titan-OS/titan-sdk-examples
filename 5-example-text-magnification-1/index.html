@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TitanOS Text Magnification Example</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://dev01.sdk.titanos.tv/sdk/sdk.js"></script>
+    <!-- <script src="https://partners.titanos.tv/static/device-info-sdk.js"></script> -->
+</head>
+<body>
+    <div class="container">
+        <h1>TitanOS Text Magnification Demo</h1>
+        
+        <p class="magnifiable-text">
+            This is a sample paragraph to demonstrate text magnification. 
+            The font size of this text will change when you toggle the magnification. 
+            It's important to ensure your app's UI adapts correctly to varying text sizes for accessibility.
+        </p>
+        
+        <button id="toggleMagnificationButton">Toggle Text Magnification</button>
+        
+        <div id="statusMessage" class="status"></div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

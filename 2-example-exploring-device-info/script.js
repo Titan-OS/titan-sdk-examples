@@ -1,0 +1,37 @@
+/*
+  Introduction
+  
+  The idea of this code is to explore the deviceInfo property.
+  Note that this property is an object containing some functions
+  to return information related to the device and it's capabilities.
+*/
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const element = document.getElementById('sdk-data');
+  const element2 = document.getElementById('sdk-data-2');
+
+  try {
+    // [1]
+    const titanSdk = await TitanSDK();
+
+    // [2]
+    titanSdk.deviceInfo.getDeviceInfo().then(data => {
+      displayObjectAsHTML(data, element);
+    });
+
+    // [3]
+    titanSdk.deviceInfo.getCapabilities().then(data => {
+      displayObjectAsHTML(data, element2);
+    });
+
+  } catch (error) {
+    element.innerText = 'Error on loading SDK: ' + error.message;
+  };
+});
+
+/*
+  [1] - Start using TitanSDK by creating an instance from TitanSDK.
+        Note: Make sure you have the script imported.
+  [2] - Note that getDeviceInfo is a promise, so you can wait for
+        the response using async/await or then.
+*/
