@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TitanOS TTS Example</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://sdk.titanos.tv/sdk/sdk.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello Titan Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://dev01.sdk.titanos.tv/sdk/sdk.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>TitanOS Text-to-Speech Demo</h1>
-        
-        <p id="speechText">Hello, this is a demonstration of Text-to-Speech using the Titan SDK!</p>
-        
-        <button id="speakButton">Speak Text</button>
-        
-        <div id="statusMessage" class="status"></div>
+  <div id="app">
+    <h1>Hello, Titan developer!</h1>
+    <div id="sdk-container">
+        <pre id="sdk-data">Loading...</pre>
+        <pre id="sdk-data-2">Loading...</pre>
     </div>
-
-    <script src="script.js" defer></script>
+  </div>
+  <script src="utils/display.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

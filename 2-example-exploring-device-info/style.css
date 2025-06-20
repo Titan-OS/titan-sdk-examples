@@ -3,6 +3,7 @@ body {
   background: #f4f4f4;
   padding: 2rem;
   color: #333;
+  overflow: scroll;
 }
 
 #app {
@@ -11,3 +12,16 @@ body {
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+#sdk-container {
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+  height: 100%;
+}
+
+pre {
+  border: 1px black solid;
+  width: 100%;
+}
+

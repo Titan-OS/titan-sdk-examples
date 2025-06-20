@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     // [1]
-    const titanSdk = await TitanSDK();
+    const titanSdk = TitanSDK;
 
     // [2]
     titanSdk.deviceInfo.getDeviceInfo().then(data => {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /*
-  [1] - Start using TitanSDK by creating an instance from TitanSDK.
+  [1] - Access the global variable TitanSDK.
         Note: Make sure you have the script imported.
   [2] - Note that getDeviceInfo is a promise, so you can wait for
         the response using async/await or then.

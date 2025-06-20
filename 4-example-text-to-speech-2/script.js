@@ -15,17 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     speakButton.addEventListener('click', async () => {
         setStatus('Checking TTS support...');
-        const titanSDK = TitanSDK();
+        // [1] Access the global variable TitanSDK.
+        // Note: Make sure you have the script imported.
+        const titanSDK = TitanSDK;
         
-        // Ensure TitanSDK.accessibility is available
-        if (typeof titanSDK === 'undefined' || !titanSDK.accessibility) {
-            setStatus('Error: TitanSDK.accessibility is not available. This script assumes it is provided by the TitanOS environment.', 'error');
-            console.error('TitanSDK.accessibility not found. This example requires the TitanOS environment or a mock SDK.');
-            return;
-        }
-
         try {
-            // 1. Check if TTS is supported on the device
+            // [2] Check if TTS is supported on the device
             const ttsSupported = await titanSDK.accessibility.isTTSSupported();
             if (!ttsSupported) {
                 setStatus('Text-to-Speech is NOT supported on this device.', 'error');
@@ -34,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             setStatus('TTS is supported. Checking user settings...');
 
-            // 2. Get current TTS settings to see if it's enabled by the user
+            // [3] Get current TTS settings to see if it's enabled by the user
             const ttsSettings = await titanSDK.accessibility.getTTSSettings();
             if (!ttsSettings.enabled) {
                 setStatus('Text-to-Speech is DISABLED by the user in TV settings.', 'error');
@@ -43,10 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             setStatus('TTS is supported and enabled. Speaking...');
 
-            // 3. Get the text to speak from the <p> element
+            // [4] Get the text to speak from the <p> element
             const textToSpeak = speechTextElement.textContent;
 
-            // 4. Initiate speaking
+            // [5] Initiate speaking
             await titanSDK.accessibility.startSpeaking(textToSpeak);
             setStatus('Text-to-Speech initiated successfully!', 'success');
 

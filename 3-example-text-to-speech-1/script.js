@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   const stopBtn = document.getElementById('stop-button');
 
   try {
-    // [1] Create instance of the SDK
-    const titanSdk = await TitanSDK();
+    // [1] Access the global variable TitanSDK.
+    // Note: Make sure you have the script imported.
+    const titanSdk = TitanSDK;
     const accessibility = titanSdk.accessibility;
 
     // [2] Check if Text-to-Speech is supported

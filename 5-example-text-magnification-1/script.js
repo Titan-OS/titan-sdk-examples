@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize state and listeners
     async function initializeMagnification() {
-        const titanSDK = TitanSDK();
-
-        console.log(titanSDK);
+        const titanSDK = TitanSDK;
 
         if (typeof titanSDK === 'undefined' || !titanSDK.accessibility) {
             setStatus('Error: TitanSDK.accessibility is not available. Ensure SDK is loaded.', 'error');
