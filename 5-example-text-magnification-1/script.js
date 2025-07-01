@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Event listener for the button (simulates a user interacting with *your app's* TM toggle)
-    // NOTE: The 1.0 is hardcoded. The scale when enabled comes from TM settings.
+    // NOTE: Here we are forcing enable to false. This is just for testing purposes, as at this
+    //       example it should toggle the status.
     toggleMagnificationButton.addEventListener('click', async () => {
         if (toggleMagnificationButton.disabled) return;
 
