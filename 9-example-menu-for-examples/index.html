@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TitanSDK Examples</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        /* Define a fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            /* 2. Use the new font and a dynamic radial gradient background */
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(circle, #2c3e50 0%, #1a1a2e 100%);
+            color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow: hidden; /* Hide scrollbars that might appear from animations */
+        }
+
+        .container {
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        h1 {
+            /* 3. Apply the animation to the title and add a subtle shadow */
+            font-size: 3.5rem;
+            font-weight: 600; /* Use a bolder weight from Poppins */
+            color: #ffffff;
+            margin-bottom: 3rem;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        nav a {
+            display: block;
+            padding: 1.5rem;
+            background-color: rgba(22, 33, 62, 0.7); /* Slightly transparent background */
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 300;
+            border-radius: 12px; /* Softer corners */
+            border: 2px solid transparent;
+            /* 4. Add a subtle shadow for depth and smoother transition */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* 5. Create a beautiful "glow" effect on focus */
+        nav a:hover,
+        nav a:focus {
+            background-color: rgba(233, 69, 96, 0.9);
+            color: #ffffff;
+            transform: scale(1.05) translateY(-5px);
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            /* The glow effect using box-shadow */
+            box-shadow: 0 0 25px rgba(233, 69, 96, 0.8), 0 10px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>TitanSDK - Testing HUB</h1>
+        <nav>
+            <ul id="menu-list">
+                <li><a href="../2-example-exploring-device-info/">Test 1: Exploring device information</a></li>
+                <li><a href="../6-example-text-to-speech-3/">Test 2: Text-to-Speech</a></li>
+                <li><a href="../5-example-text-magnification-1/">Test 3: Text Magnification</a></li>
+                <li><a href="../8-example-app-control/">Test 4: App Control</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstButton = document.querySelector('nav a');
+            if (firstButton) {
+                firstButton.focus();
+            }
+        });
+    </script>
+    
+</body>
+</html>
