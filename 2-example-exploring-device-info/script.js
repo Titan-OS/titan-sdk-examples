@@ -8,7 +8,6 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
   const element = document.getElementById('sdk-data');
-  const element2 = document.getElementById('sdk-data-2');
 
   try {
     // [1]
@@ -17,11 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     // [2]
     titanSdk.deviceInfo.getDeviceInfo().then(data => {
       displayObjectAsHTML(data, element);
-    });
-
-    // [3]
-    titanSdk.deviceInfo.getCapabilities().then(data => {
-      displayObjectAsHTML(data, element2);
     });
 
   } catch (error) {
