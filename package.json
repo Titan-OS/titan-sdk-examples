@@ -1,0 +1,24 @@
+{
+  "name": "titan-sdk-examples",
+  "version": "1.0.0",
+  "description": "This repository contains simple and practical examples demonstrating how to integrate the Titan SDK in frontend projects.",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail --names \"MENU,APP1,APP2,APP3,APP4\" \"node server.js\" \"npm run dev --prefix 15-example-npm-exploring-complete-sdk-json\" \"npm run dev --prefix 11-example-npm-text-to-speech-3\" \"npm run dev --prefix 12-example-npm-text-magnification\" \"npm run dev --prefix 13-example-npm-app-control\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Titan-OS/titan-sdk-examples.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Titan-OS/titan-sdk-examples/issues"
+  },
+  "homepage": "https://github.com/Titan-OS/titan-sdk-examples#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "http-server": "^14.1.1"
+  }
+}

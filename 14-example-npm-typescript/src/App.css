@@ -1,0 +1,117 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #2b2b2b;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+}
+
+h1 {
+    color: #4CAF50; /* Green tone for TitanOS */
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.speakButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 15px; /* Add some space between the buttons */
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.speakButton {
+    background-color: grey;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none; /* For TV remote focus styling */
+    height: 160px;
+    width: 110px;
+    flex-shrink: 0; /* Prevents buttons from shrinking */
+}
+
+.speakButton:hover,
+.speakButton:focus {
+    background-color: #45a049;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+}
+
+.status {
+    margin-top: 20px;
+    font-size: 0.9em;
+    padding: 10px;
+    border-radius: 4px;
+    color: #bbb; /* Default status color */
+}
+
+.status.error {
+    color: #f44336; /* Red for errors */
+}
+
+.status.success {
+    color: #8bc34a; /* Lighter green for success */
+}
