@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Titan SDK</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://sdk.titanos.tv/sdk/sdk.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>Titan SDK - Properties</h1>
+    <div id="tabs">
+      <button id="btn-device-info" class="tab-button">Device Info</button>
+      <button id="btn-tts" class="tab-button">Text-to-speech Settings</button>
+      <button id="btn-tm" class="tab-button">Text magnification Settings</button>
+    </div>
+    
+    <div id="sdk-container">
+      <div class="pre-wrapper">
+        <pre id="sdk-data" tabindex="0">Loading...</pre>
+      </div>
+    </div>
+  </div>
+  <script src="utils/display.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
