@@ -1,5 +1,3 @@
-// src/App.jsx
-
 import React from 'react';
 
 // Import the SDK function
@@ -32,13 +30,11 @@ function App() {
     }
   };
 
-  // This useEffect hook runs once on mount, replacing 'DOMContentLoaded'
   React.useEffect(() => {
     // Initialize state and check for support
     const initializeMagnification = async () => {
       try {
         const titanSDK = getTitanSDK();
-        await titanSDK.isReady;
 
         const isSupported = await titanSDK.accessibility.isTextMagnificationSupported();
      

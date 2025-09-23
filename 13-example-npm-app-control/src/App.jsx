@@ -1,12 +1,6 @@
-// src/App.jsx
-
 import React from 'react';
-
-// Import the SDK function from the npm package
 import { getTitanSDK } from '@titan-os/sdk';
 
-// A better practice in React is to define our UI data in a structured way.
-// This avoids mismatches between button text and the app ID to launch.
 const apps = [
   { id: 'netflix', displayText: 'Open Netflix' },
   { id: 'prime_video', displayText: 'Open Prime' },
@@ -25,6 +19,7 @@ function App() {
     setStatus({ message, type });
   };
   
+  // Here is where the magic happens!
   // This event handler is called when any of the app buttons are clicked
   const handleLaunchApp = async (appId) => {
     try {
@@ -37,26 +32,21 @@ function App() {
     }
   };
 
-  // This useEffect hook runs once after the component mounts
+  // [8] Set focus to the first button as default.
   React.useEffect(() => {
-    // [8] Set focus to the first button as default.
-    // The '?' is optional chaining, it prevents an error if the ref isn't set yet.
     firstButtonRef.current?.focus();
-  }, []); // The empty dependency array ensures this runs only once.
+  }, []);
 
   return (
     <div className="container">
       <h1>App Control Demo</h1>
       
       <div className="app2appButtons">
-        {/* We map over our 'apps' array to render the buttons dynamically */}
         {apps.map((app, index) => (
           <button
             key={app.id}
             className="app2appButton"
-            // We pass the specific app's ID to the handler
             onClick={() => handleLaunchApp(app.id)}
-            // We attach the ref only to the very first button in the list
             ref={index === 0 ? firstButtonRef : null}
           >
             {app.displayText}

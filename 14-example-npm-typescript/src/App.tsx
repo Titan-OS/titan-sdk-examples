@@ -13,23 +13,20 @@ const TtsCarousel = () => {
   const [status, setStatus] = useState<StatusMessage>({ text: '', type: '' });
   const buttonsRef = useRef<HTMLButtonElement[]>([]);
 
-  // NEW: Use a ref to store the SDK instance.
   const sdkRef = useRef<TitanSDK | null>(null);
 
   const setStatusMessage = (text: string, type: 'success' | 'error' | '' = '') => {
     setStatus({ text, type });
   };
 
-  // This useEffect initializes the SDK and then runs the checks.
   useEffect(() => {
     const checkTtsAndSetFocus = async () => {
       try {
-        // 1. Initialize the SDK instance and store it in the ref
+        // Initializing the SDK instance and storing it in the ref
         const titanSDK = getTitanSDK();
-        await titanSDK.isReady;
         sdkRef.current = titanSDK;
 
-        // 2. Run the support and settings checks using the instance
+        // Runing the support and settings checks using the instance
         const ttsSupported = await titanSDK.accessibility.isTTSSupported();
         if (!ttsSupported) {
           setStatusMessage('Text-to-Speech is NOT supported on this device.', 'error');
@@ -44,7 +41,7 @@ const TtsCarousel = () => {
 
         setStatusMessage('TTS is ready!', 'success');
 
-        // 3. Set focus to the first button after all checks pass
+        // Setting focus to the first button after all checks pass
         buttonsRef.current[0]?.focus();
 
       } catch (error) {
@@ -55,9 +52,8 @@ const TtsCarousel = () => {
     };
 
     checkTtsAndSetFocus();
-  }, []); // The dependency array is empty to ensure this runs only once on mount.
+  }, []);
 
-  // --- THIS IS THE CORRECTED FUNCTION ---
   const handleFocus = async (event: React.FocusEvent<HTMLButtonElement>) => {
     // 1. Get the attribute value and the SDK instance *before* any await calls.
     const textToSpeak = event.currentTarget.getAttribute('aria-label');

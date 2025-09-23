@@ -1,15 +1,9 @@
-// src/App.jsx
+// [1] - This app simulates a carousel with TTS applied to the navigation.
 
-// We need a few more hooks from React this time:
-// - useState: To manage the status message.
-// - useEffect: To run initialization code once the app loads.
-// - useRef: To hold a reference to the SDK instance and to set initial focus.
 import React, { useState } from 'react';
-
 // Import the SDK function, replacing the global script tag
 import { getTitanSDK } from '@titan-os/sdk';
 
-// To make the code cleaner, we can define our carousel items as data
 const carouselItems = [
   { id: 1, label: 'Movies 1', aria: 'Carousel of movies: movie 1' },
   { id: 2, label: 'Movies 2', aria: 'Carousel of movies: movie 2' },
@@ -19,25 +13,17 @@ const carouselItems = [
 ];
 
 function App() {
-  // [1] - This app simulates a carousel with TTS applied to the navigation.
-
-  // A state to hold our status message and its type ('success' or 'error')
   const [status, setStatus] = useState({ message: '', type: '' });
-  
-  // A ref to hold the initialized SDK instance so we can access it anywhere in the component
   const sdkRef = React.useRef(null);
-  
-  // A ref for the first button, so we can focus it on load
   const firstButtonRef = React.useRef(null);
 
-  // This useEffect hook runs once on component mount, replacing 'DOMContentLoaded'
   React.useEffect(() => {
     const initializeSDK = async () => {
       try {
         // [4] - Get the SDK instance from the imported function.
         const titanSDK = getTitanSDK();
-        await titanSDK.isReady;
-        sdkRef.current = titanSDK; // Store the instance in our ref
+        
+        sdkRef.current = titanSDK;
 
         // [2] - Check TTS support and if it's enabled.
         // [2.2] - Check if TTS is supported on the device
@@ -56,7 +42,7 @@ function App() {
 
         setStatus({ message: 'TTS is enabled and ready.', type: 'success' });
 
-        // [8] Set focus to the first button as default.
+        // This line just set focus to the first button as default.
         firstButtonRef.current?.focus();
 
       } catch (error) {
@@ -65,7 +51,7 @@ function App() {
     };
     
     initializeSDK();
-  }, []); // Empty array ensures this runs only once.
+  }, []);
 
   // [3] - This function handles the focus event for all carousel items.
   const handleButtonFocus = async (event) => {
@@ -97,7 +83,6 @@ function App() {
       <h1>Text-to-Speech Demo: Carousel navigation</h1>
       
       <div className="speakButtons">
-        {/* We map over our data array to create the buttons dynamically */}
         {carouselItems.map((item, index) => (
           <button
             key={item.id}
